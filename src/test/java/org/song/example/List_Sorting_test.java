@@ -27,9 +27,31 @@ public class List_Sorting_test {
 		
 		v = array[0];
 		for (int i = 1; i < array.length; i++) {
-			Assert.assertTrue(array[i].intValue() <= v);
+			Assert.assertTrue(v >= array[i].intValue());
+			v = array[i];
+		}
+	}
+	
+	@Test
+	public void Test_Sort_Array_Comparator() {
+		Integer[] array = {3, 1, 2, 8};
+		
+		// Asc
+		Arrays.sort(array, (a, b)-> a - b);
+		
+		int v = array[0];
+		for (int i = 1; i < array.length; i++) {
+			Assert.assertTrue(array[i].intValue() >= v);
 			v = array[i];
 		}
 		
+		// Desc
+		Arrays.sort(array, (a, b)-> b - a);
+		
+		v = array[0];
+		for (int i = 1; i < array.length; i++) {
+			Assert.assertTrue(v >= array[i].intValue());
+			v = array[i];
+		}
 	}
 }
