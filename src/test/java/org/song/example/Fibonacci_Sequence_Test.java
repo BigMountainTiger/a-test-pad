@@ -45,6 +45,37 @@ public class Fibonacci_Sequence_Test {
 		return p;
 		
 	}
+	
+	private long[] fib_Loop_Array_Generator(long n) {
+		if (n < 0) {
+			String msg = "Negative number is not valid "
+					+ "for Fibonacci Numbers";
+			throw new IllegalArgumentException(msg);
+		}
+		
+		long[] result = new long[(int) (n + 1)];
+		
+		for (int i = 0; i < result.length; i++) {
+			result[i] = i;
+		}
+		
+		if (n == 0 || n == 1) {
+			return result;
+		}
+		
+		long p_2 = 0, p_1 = 1, p = 1;
+		for (int i = 2; i <= n; i++) {
+			p = p_2 + p_1;
+			
+			p_2 = p_1;
+			p_1 = p;
+			
+			result[i] = p;
+		}
+		
+		return result;
+		
+	}
 
 	@Test
 	public void Test_By_Loop() {
@@ -53,6 +84,28 @@ public class Fibonacci_Sequence_Test {
 			Assert.assertEquals(fib_Loop_Generator(i), fib_samples[i]);
 		}
 		
+	}
+	
+	@Test
+	public void Test_By_Loop_Array() {
+		long[] result = fib_Loop_Array_Generator(0);
+		Assert.assertEquals(result.length, 1);
+		
+		result = fib_Loop_Array_Generator(1);
+		Assert.assertEquals(result.length, 2);
+		
+		result = fib_Loop_Array_Generator(2);
+		Assert.assertEquals(result.length, 3);
+		for (int i = 0; i < result.length; i++) {
+			Assert.assertEquals(result[i], fib_samples[i]);
+		}
+		
+		result  = fib_Loop_Array_Generator(fib_samples.length - 1);
+		Assert.assertEquals(result.length, fib_samples.length);
+		
+		for (int i = 0; i < fib_samples.length; i++) {
+			Assert.assertEquals(result[i], fib_samples[i]);
+		}
 	}
 	
 	@Test
