@@ -9,6 +9,7 @@ public class Fibonacci_Sequence_Test {
 			377,610,987,1597,2584,4181,6765,10946,17711,28657,
 			46368,75025,121393,196418,317811};
 	
+	// fib_Recursive_Generator
 	private long fib_Recursive_Generator(long n) {
 		
 		if (n < 0) {
@@ -24,6 +25,7 @@ public class Fibonacci_Sequence_Test {
 		
 	}
 	
+	// fib_Loop_Generator
 	private long fib_Loop_Generator(long n) {
 		
 		if (n < 0) {
@@ -46,7 +48,12 @@ public class Fibonacci_Sequence_Test {
 		
 	}
 	
+	// fib_Loop_Array_Generator
 	private long[] fib_Loop_Array_Generator(long n) {
+		
+		// n is the sequence index - 0, 1, 2, 3, 4
+		// The number of entries in the array = n + 1
+		
 		if (n < 0) {
 			String msg = "Negative number is not valid "
 					+ "for Fibonacci Numbers";
