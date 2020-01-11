@@ -109,5 +109,13 @@ public class List_Sorting_test {
 		}
 		Reporter.log(builder.toString(), true);
 		
+		for(int i = 0; i < list.length - 1; i++) {
+			String s0 = list[i];
+			String s1 = list[i + 1];
+			
+			// May be duplicate characters
+			Assert.assertTrue(s0.compareTo(s1) >= 0);
+		}
+		
 	}
 }
