@@ -27,6 +27,7 @@ public class Fibonacci_Sequence_Test {
 	
 	// fib_Loop_Generator
 	private long fib_Loop_Generator(long n) {
+		// n is the sequence index - 0, 1, 2, 3, 4
 		
 		if (n < 0) {
 			String msg = "Negative number is not valid "
